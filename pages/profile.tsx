@@ -1,12 +1,13 @@
 import { NextPage } from 'next';
 import { Navbar } from '@components/Navigation';
 import ProfileCard from '@components/Profile/ProfileCard';
+import AboutSection from '@components/Profile/AboutSection';
 
 const Profile: NextPage = () => {
     return (
         <>
             <Navbar />
-            <main className="bg-gray-50">
+            <main className="bg-gray-100">
                 <div className="container mx-auto p-5">
                     <div className="md:flex no-wrap md:-mx-2">
                         <div className="w-full md:w-3/12 md:mx-2">
@@ -22,6 +23,10 @@ const Profile: NextPage = () => {
                                 branch="Computer Science and Engineering"
                                 graduationDate="July 2023"
                             />
+                        </div>
+
+                        <div className="w-full md:w-9/12 mx-2 h-64">
+                            <AboutSection />
                         </div>
                     </div>
                 </div>
