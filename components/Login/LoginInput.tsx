@@ -4,12 +4,16 @@ interface LoginInputProps {
     title: string;
     type: 'email' | 'password';
     placeholder: string;
+    value: string;
+    onValueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const LoginInput: React.FC<LoginInputProps> = ({
     title,
     type,
     placeholder,
+    value,
+    onValueChange,
 }: LoginInputProps) => {
     return (
         <div className="mt-8 content-center">
@@ -21,6 +25,8 @@ const LoginInput: React.FC<LoginInputProps> = ({
                 className="w-full text-base px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-400"
                 type={type}
                 placeholder={placeholder}
+                value={value}
+                onChange={onValueChange}
             />
         </div>
     );
