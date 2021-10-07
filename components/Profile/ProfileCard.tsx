@@ -24,9 +24,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     degree,
 }: ProfileCardProps) => {
     return (
-        <div className="p-2">
-            <div className="overflow-hidden relative h-96 w-96">
-                <Image src={image} layout="fill" objectFit="cover" />
+        <div className="bg-white p-2 border-t-4 border-green-400 w-96">
+            <div className="overflow-hidden">
+                <div className="relative h-96 w-96">
+                    <Image src={image} layout="fill" objectFit="cover" />
+                </div>
             </div>
 
             <h1 className="text-gray-900 font-bold text-2xl leading-8 my-2">
