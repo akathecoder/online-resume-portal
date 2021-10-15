@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import { Navbar } from '@components/Navigation';
 import ProfileCard from '@components/Profile/ProfileCard';
 import AboutSection from '@components/Profile/AboutSection';
+import ExpereinceSection from '@components/Profile/ExpereinceSection';
 
 const Profile: NextPage = () => {
     return (
@@ -25,8 +26,9 @@ const Profile: NextPage = () => {
                             />
                         </div>
 
-                        <div className="w-full md:w-9/12 mx-2 h-64">
+                        <div className="w-full md:w-9/12 mx-2 grid gap-3">
                             <AboutSection />
+                            <ExpereinceSection />
                         </div>
                     </div>
                 </div>
