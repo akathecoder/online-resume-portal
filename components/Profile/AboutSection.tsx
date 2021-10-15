@@ -1,72 +1,79 @@
 import { UserIcon } from '@heroicons/react/outline';
 import React from 'react';
 
+interface InfoGridItemProps {
+    title: string;
+    detail: string;
+    link?: string;
+}
+
+const InfoGridItem: React.FC<InfoGridItemProps> = ({
+    title,
+    detail,
+    link,
+}: InfoGridItemProps) => {
+    return (
+        <div className="grid grid-cols-7">
+            <div className="px-4 py-2 font-semibold col-span-3">{title}</div>
+            <div className="px-4 py-2 col-span-4">
+                {link ? (
+                    <a className="text-grey-800" href={link}>
+                        {detail}
+                    </a>
+                ) : (
+                    detail
+                )}
+            </div>
+        </div>
+    );
+};
+
 const AboutSection: React.FC = () => {
     return (
-        <div className="bg-white p-3 shadow-sm rounded-sm">
-            <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3">
-                <UserIcon className="w-6 h-6 text-green-500" />
-                <span className="tracking-wide text-xl">About</span>
+        <div className="bg-white px-3 py-4 shadow-sm rounded-sm">
+            <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3 ml-2">
+                <UserIcon className="w-5 h-5 text-blue-500" />
+                <span className="tracking-wide text-xl ml-2">About</span>
             </div>
 
-            <div className="text-gray-700">
+            <div className="text-gray-700 px-2">
                 <div className="grid md:grid-cols-2 text-sm">
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">
-                            First Name
-                        </div>
-                        <div className="px-4 py-2">Jane</div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">Last Name</div>
-                        <div className="px-4 py-2">Doe</div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">Gender</div>
-                        <div className="px-4 py-2">Female</div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">
-                            Contact No.
-                        </div>
-                        <div className="px-4 py-2">+11 998001001</div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">
-                            Current Address
-                        </div>
-                        <div className="px-4 py-2">
-                            Beech Creek, PA, Pennsylvania
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">
-                            Permanant Address
-                        </div>
-                        <div className="px-4 py-2">
-                            Arlington Heights, IL, Illinois
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">Email.</div>
-                        <div className="px-4 py-2">
-                            <a
-                                className="text-blue-800"
-                                href="mailto:jane@example.com"
-                            >
-                                jane@example.com
-                            </a>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2">
-                        <div className="px-4 py-2 font-semibold">Birthday</div>
-                        <div className="px-4 py-2">Feb 06, 1998</div>
-                    </div>
+                    <InfoGridItem
+                        title="Email"
+                        detail="testmail@gmail.com"
+                        link="testmail@gmail.com"
+                    />
+
+                    <InfoGridItem
+                        title="Phone Number"
+                        detail="+91-9876543210"
+                    />
+
+                    <InfoGridItem
+                        title="Portfolio"
+                        detail="portfolio.xyz"
+                        link="https://portfolio.xyz/"
+                    />
+
+                    <InfoGridItem
+                        title="GitHub"
+                        detail="username"
+                        link="https://github.com/username/"
+                    />
+
+                    <InfoGridItem
+                        title="LinkedIn"
+                        detail="username"
+                        link="https://linkedin.com/in/username/"
+                    />
+
+                    <InfoGridItem
+                        title="Blog"
+                        detail="blog.portfolio.xyz"
+                        link="https://blog.portfolio.xyz/"
+                    />
                 </div>
             </div>
-            <button className="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
-                Show Full Information
-            </button>
         </div>
     );
 };
