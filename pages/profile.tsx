@@ -5,6 +5,7 @@ import AboutSection from '@components/Profile/AboutSection';
 import ExpereinceSection from '@components/Profile/ExpereinceSection';
 import EducationSection from '@components/Profile/EducationSection';
 import CertificationSection from '@components/Profile/CertificationSection';
+import SkillsSection from '@components/Profile/SkillsSection';
 
 const Profile: NextPage = () => {
     return (
@@ -30,6 +31,7 @@ const Profile: NextPage = () => {
 
                         <div className="w-full md:w-9/12 mx-2 grid gap-3">
                             <AboutSection />
+                            <SkillsSection />
                             <ExpereinceSection />
                             <EducationSection />
                             <CertificationSection />
