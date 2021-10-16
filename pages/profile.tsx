@@ -1,11 +1,13 @@
 import { NextPage } from 'next';
 import { Navbar } from '@components/Navigation';
-import ProfileCard from '@components/Profile/ProfileCard';
-import AboutSection from '@components/Profile/AboutSection';
-import ExpereinceSection from '@components/Profile/ExpereinceSection';
-import EducationSection from '@components/Profile/EducationSection';
-import CertificationSection from '@components/Profile/CertificationSection';
-import SkillsSection from '@components/Profile/SkillsSection';
+import {
+    ProfileCard,
+    AboutSection,
+    ExpereinceSection,
+    EducationSection,
+    CertificationSection,
+    SkillsSection,
+} from '@components/Profile';
 
 const Profile: NextPage = () => {
     return (
