@@ -4,6 +4,7 @@ import ProfileCard from '@components/Profile/ProfileCard';
 import AboutSection from '@components/Profile/AboutSection';
 import ExpereinceSection from '@components/Profile/ExpereinceSection';
 import EducationSection from '@components/Profile/EducationSection';
+import CertificationSection from '@components/Profile/CertificationSection';
 
 const Profile: NextPage = () => {
     return (
@@ -31,6 +32,7 @@ const Profile: NextPage = () => {
                             <AboutSection />
                             <ExpereinceSection />
                             <EducationSection />
+                            <CertificationSection />
                         </div>
                     </div>
                 </div>
