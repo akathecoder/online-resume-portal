@@ -1,0 +1,170 @@
+{
+    "profile": {
+        "name": "John Doe",
+        "tagline": "Full Stack Developer",
+        "bio": "Lorem ipsum dolor sit amet consectetur adipisicing elit., Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt",
+        "image": "https://doodleipsum.com/500/avatar-4?bg:ceebff",
+        "status": "student",
+        "degree": "Bachelor of Technology",
+        "branch": "Computer Science and Engineering",
+        "graduationDate": "July 2023"
+    },
+    "about": [
+        {
+            "key": 0,
+            "title": "Email",
+            "detail": "testmail@gmail.com",
+            "link": "testmail@gmail.com"
+        },
+        {
+            "key": 1,
+            "title": "Phone Number",
+            "detail": "+91-9876543210"
+        },
+        {
+            "key": 2,
+            "title": "Portfolio",
+            "detail": "portfolio.xyz",
+            "link": "https://portfolio.xyz/"
+        },
+        {
+            "key": 3,
+            "title": "GitHub",
+            "detail": "username",
+            "link": "https://github.com/username/"
+        },
+        {
+            "key": 4,
+            "title": "LinkedIn",
+            "detail": "username",
+            "link": "https://linkedin.com/in/username/"
+        },
+        {
+            "key": 5,
+            "title": "Blog",
+            "detail": "blog.portfolio.xyz",
+            "link": "https://blog.portfolio.xyz/"
+        }
+    ],
+    "skills": [
+        {
+            "key": 0,
+            "name": "React JS"
+        },
+        {
+            "key": 1,
+            "name": "React JS"
+        },
+        {
+            "key": 2,
+            "name": "React JS"
+        },
+        {
+            "key": 3,
+            "name": "React JS"
+        },
+        {
+            "key": 4,
+            "name": "React JS"
+        },
+        {
+            "key": 5,
+            "name": "React JS"
+        },
+        {
+            "key": 6,
+            "name": "React JS"
+        },
+        {
+            "key": 7,
+            "name": "React JS"
+        },
+        {
+            "key": 8,
+            "name": "React JS"
+        },
+        {
+            "key": 9,
+            "name": "React JS"
+        },
+        {
+            "key": 10,
+            "name": "React JS"
+        },
+        {
+            "key": 11,
+            "name": "React JS"
+        }
+    ],
+    "expereince": [
+        {
+            "key": 0,
+            "companyName": "Company Name",
+            "position": "Soft,ware Developer",
+            "place": "Jaipur",
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+        },
+        {
+            "key": 1,
+            "companyName": "Company Name",
+            "position": "Soft,ware Developer",
+            "place": "Jaipur",
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+        },
+        {
+            "key": 2,
+            "companyName": "Company Name",
+            "position": "Soft,ware Developer",
+            "place": "Jaipur",
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+        }
+    ],
+    "education": [
+        {
+            "key": 0,
+            "school": "University of Technology",
+            "degree": "Bachelor of Technology - BTech",
+            "fieldOfStudy": "Computer Science",
+            "grade": 8.89,
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae ,quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+        },
+        {
+            "key": 1,
+            "school": "University of Technology",
+            "degree": "Bachelor of Technology - BTech",
+            "fieldOfStudy": "Computer Science",
+            "grade": 8.89,
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae ,quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+        }
+    ],
+    "certification": [
+        {
+            "key": 0,
+            "name": "University of Technology",
+            "organization": "Bachelor of Technology - BTech",
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "credentialID": "2b45092f-9c41-4ba7-b013-fb997bd8a662",
+            "credentialUrl": "https://certification.com/2b45092f-9c41-4ba7-b013-fb997bd8a662"
+        },
+        {
+            "key": 1,
+            "name": "University of Technology",
+            "organization": "Bachelor of Technology - BTech",
+            "startDate": "May 2021",
+            "endDate": "August 2021",
+            "credentialID": "2b45092f-9c41-4ba7-b013-fb997bd8a662",
+            "credentialUrl": "https://certification.com/2b45092f-9c41-4ba7-b013-fb997bd8a662"
+        }
+    ]
+}

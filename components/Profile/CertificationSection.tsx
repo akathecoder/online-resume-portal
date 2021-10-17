@@ -1,5 +1,6 @@
 import { UserIcon } from '@heroicons/react/outline';
 import React from 'react';
+import { CertificationData } from '../../utilities/profileDataTypes';
 
 interface CertificationGridItemProps {
     name: string;
@@ -15,7 +16,6 @@ const CertificationGridItem: React.FC<CertificationGridItemProps> = ({
     organization,
     startDate,
     endDate,
-    credentialID,
     credentialUrl,
 }: CertificationGridItemProps) => {
     return (
@@ -36,7 +36,13 @@ const CertificationGridItem: React.FC<CertificationGridItemProps> = ({
     );
 };
 
-const CertificationSection: React.FC = () => {
+interface CertificationSectionProps {
+    data: Array<CertificationData>;
+}
+
+const CertificationSection: React.FC<CertificationSectionProps> = ({
+    data,
+}: CertificationSectionProps) => {
     return (
         <div className="bg-white px-3 py-4 shadow-sm rounded-sm">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3 ml-2">
@@ -48,21 +54,21 @@ const CertificationSection: React.FC = () => {
 
             <div className="text-gray-700 px-2">
                 <div className="text-sm">
-                    {[1, 2].map((value, index) => {
+                    {data.map((value, index) => {
                         return (
-                            <>
+                            <div key={value.key}>
                                 {index > 0 && (
                                     <hr className="mx-4 border-gray-300" />
                                 )}
                                 <CertificationGridItem
-                                    name="University of Technology"
-                                    organization="Bachelor of Technology - BTech"
-                                    startDate="May 2021"
-                                    endDate="August 2021"
-                                    credentialID="2b45092f-9c41-4ba7-b013-fb997bd8a662"
-                                    credentialUrl="https://certification.com/2b45092f-9c41-4ba7-b013-fb997bd8a662"
+                                    name={value.name}
+                                    organization={value.organization}
+                                    startDate={value.startDate}
+                                    endDate={value.endDate}
+                                    credentialID={value.credentialID}
+                                    credentialUrl={value.credentialUrl}
                                 />
-                            </>
+                            </div>
                         );
                     })}
                 </div>

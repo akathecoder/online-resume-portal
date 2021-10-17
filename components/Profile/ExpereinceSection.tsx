@@ -1,5 +1,6 @@
 import { UserIcon } from '@heroicons/react/outline';
 import React from 'react';
+import { ExpereinceData } from '../../utilities/profileDataTypes';
 
 interface ExpereinceGridItemProps {
     companyName: string;
@@ -36,7 +37,13 @@ const ExpereinceGridItem: React.FC<ExpereinceGridItemProps> = ({
     );
 };
 
-const ExpereinceSection: React.FC = () => {
+interface ExpereinceSectionProps {
+    data: Array<ExpereinceData>;
+}
+
+const ExpereinceSection: React.FC<ExpereinceSectionProps> = ({
+    data,
+}: ExpereinceSectionProps) => {
     return (
         <div className="bg-white px-3 py-4 shadow-sm rounded-sm">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3 ml-2">
@@ -46,21 +53,21 @@ const ExpereinceSection: React.FC = () => {
 
             <div className="text-gray-700 px-2">
                 <div className="text-sm">
-                    {[1, 2, 3, 4].map((value, index) => {
+                    {data.map((value, index) => {
                         return (
-                            <>
+                            <div key={value.key}>
                                 {index > 0 && (
                                     <hr className="mx-4 border-gray-300" />
                                 )}
                                 <ExpereinceGridItem
-                                    companyName="Company Name"
-                                    position="Software Developer"
-                                    place="Jaipur"
-                                    startDate="May 2021"
-                                    endDate="August 2021"
-                                    details="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+                                    companyName={value.companyName}
+                                    position={value.position}
+                                    place={value.place}
+                                    startDate={value.startDate}
+                                    endDate={value.endDate}
+                                    details={value.details}
                                 />
-                            </>
+                            </div>
                         );
                     })}
                 </div>

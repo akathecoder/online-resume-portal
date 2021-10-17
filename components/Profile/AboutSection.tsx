@@ -1,4 +1,5 @@
 import { UserIcon } from '@heroicons/react/outline';
+import { AboutData } from '@utilities/profileDataTypes';
 import React from 'react';
 
 interface InfoGridItemProps {
@@ -28,7 +29,13 @@ const InfoGridItem: React.FC<InfoGridItemProps> = ({
     );
 };
 
-const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+    data: Array<AboutData>;
+}
+
+const AboutSection: React.FC<AboutSectionProps> = ({
+    data,
+}: AboutSectionProps) => {
     return (
         <div className="bg-white px-3 py-4 shadow-sm rounded-sm">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3 ml-2">
@@ -38,40 +45,16 @@ const AboutSection: React.FC = () => {
 
             <div className="text-gray-700 px-2">
                 <div className="grid md:grid-cols-2 text-sm">
-                    <InfoGridItem
-                        title="Email"
-                        detail="testmail@gmail.com"
-                        link="testmail@gmail.com"
-                    />
-
-                    <InfoGridItem
-                        title="Phone Number"
-                        detail="+91-9876543210"
-                    />
-
-                    <InfoGridItem
-                        title="Portfolio"
-                        detail="portfolio.xyz"
-                        link="https://portfolio.xyz/"
-                    />
-
-                    <InfoGridItem
-                        title="GitHub"
-                        detail="username"
-                        link="https://github.com/username/"
-                    />
-
-                    <InfoGridItem
-                        title="LinkedIn"
-                        detail="username"
-                        link="https://linkedin.com/in/username/"
-                    />
-
-                    <InfoGridItem
-                        title="Blog"
-                        detail="blog.portfolio.xyz"
-                        link="https://blog.portfolio.xyz/"
-                    />
+                    {data
+                        .sort((a, b) => a.key - b.key)
+                        .map((value) => (
+                            <InfoGridItem
+                                key={value.key}
+                                title={value.title}
+                                detail={value.detail}
+                                link={value.link}
+                            />
+                        ))}
                 </div>
             </div>
         </div>

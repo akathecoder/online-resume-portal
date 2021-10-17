@@ -1,44 +1,31 @@
 import React from 'react';
 import Image from 'next/image';
 import InfoCard from './InfoCard';
+import { ProfileData } from '../../utilities/profileDataTypes';
 
 interface ProfileCardProps {
-    image: string;
-    name: string;
-    tagline?: string;
-    bio?: string;
-    status: 'student' | 'graduated';
-    graduationDate?: string;
-    branch?: string;
-    degree?: string;
+    data: ProfileData;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
-    name,
-    tagline,
-    bio,
-    image,
-    status,
-    graduationDate,
-    branch,
-    degree,
+    data,
 }: ProfileCardProps) => {
     return (
         <div className="bg-white p-2 border-t-4 border-green-400 w-96 sticky top-24">
             <div className="overflow-hidden">
                 <div className="relative h-96 w-96">
-                    <Image src={image} layout="fill" objectFit="cover" />
+                    <Image src={data.image} layout="fill" objectFit="cover" />
                 </div>
             </div>
 
             <h1 className="text-gray-900 font-bold text-2xl leading-8 my-2">
-                {name}
+                {data.name}
             </h1>
             <h3 className="text-gray-600 font-lg text-semibold leading-6 text-lg my-1">
-                {tagline}
+                {data.tagline}
             </h3>
             <p className="text-base text-gray-500 hover:text-gray-600 leading-6 my-1">
-                {bio}
+                {data.bio}
             </p>
 
             <ul className=" bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
@@ -47,23 +34,25 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                         <span
                             className={
                                 'py-1 px-2 rounded text-white text-sm ' +
-                                (status === 'student'
+                                (data.status === 'student'
                                     ? ' bg-green-500 '
                                     : ' bg-red-500 ')
                             }
                         >
-                            {status === 'student' ? 'Student' : 'Graduated'}
+                            {data.status === 'student'
+                                ? 'Student'
+                                : 'Graduated'}
                         </span>
                     </span>
                 </InfoCard>
 
-                <InfoCard title="Degree" information={degree} />
+                <InfoCard title="Degree" information={data.degree} />
 
-                <InfoCard title="Branch" information={branch} />
+                <InfoCard title="Branch" information={data.branch} />
 
                 <InfoCard
                     title="Graduation Date"
-                    information={graduationDate}
+                    information={data.graduationDate}
                 />
             </ul>
         </div>

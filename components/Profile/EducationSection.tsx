@@ -1,5 +1,6 @@
 import { UserIcon } from '@heroicons/react/outline';
 import React from 'react';
+import { EducationData } from '../../utilities/profileDataTypes';
 
 interface EducationGridItemProps {
     school: string;
@@ -37,7 +38,14 @@ const EducationGridItem: React.FC<EducationGridItemProps> = ({
         </div>
     );
 };
-const EducationSection: React.FC = () => {
+
+interface EducationSectionProps {
+    data: Array<EducationData>;
+}
+
+const EducationSection: React.FC<EducationSectionProps> = ({
+    data,
+}: EducationSectionProps) => {
     return (
         <div className="bg-white px-3 py-4 shadow-sm rounded-sm">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 my-3 ml-2">
@@ -47,22 +55,22 @@ const EducationSection: React.FC = () => {
 
             <div className="text-gray-700 px-2">
                 <div className="text-sm">
-                    {[1, 2].map((value, index) => {
+                    {data.map((value, index) => {
                         return (
-                            <>
+                            <div key={value.key}>
                                 {index > 0 && (
                                     <hr className="mx-4 border-gray-300" />
                                 )}
                                 <EducationGridItem
-                                    school="University of Technology"
-                                    degree="Bachelor of Technology - BTech"
-                                    fieldOfStudy="Computer Science"
-                                    grade={8.89}
-                                    startDate="May 2021"
-                                    endDate="August 2021"
-                                    details="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, nulla dolore accusantium totam blanditiis adipisci laborum fugit, repudiandae quibusdam accusamus delectus commodi? Corrupti expedita exercitationem suscipit, iste optio obcaecati dolores ab atque pariatur molestiae nulla harum cumque! Nemo sit unde architecto perspiciatis? Eligendi debitis tempora nobis nulla expedita magni ad, ducimus consectetur, incidunt alias vero voluptatem molestiae minus accusamus delectus commodi?"
+                                    school={value.school}
+                                    degree={value.degree}
+                                    fieldOfStudy={value.fieldOfStudy}
+                                    grade={value.grade}
+                                    startDate={value.startDate}
+                                    endDate={value.endDate}
+                                    details={value.details}
                                 />
-                            </>
+                            </div>
                         );
                     })}
                 </div>
