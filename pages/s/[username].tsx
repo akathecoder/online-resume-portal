@@ -13,8 +13,7 @@ import {
     SkillsSection,
 } from '@components/Profile';
 import { StudentProfileType } from '@utilities/profileDataTypes';
-
-import jsonData from '../../data/akathecoder.json';
+import { getUserDataByUsername } from '@utilities/dataFunctions';
 
 const Username: NextPage<
     InferGetServerSidePropsType<typeof getServerSideProps>
@@ -48,11 +47,13 @@ type Data = {
 };
 
 export const getServerSideProps: GetServerSideProps<Data> = async (ctx) => {
-    const username = ctx.params?.username;
+    const username: string = ctx.params?.username + '';
+
+    const data = await getUserDataByUsername(username);
 
     return {
         props: {
-            data: jsonData as StudentProfileType,
+            data: data,
         },
     };
 };
