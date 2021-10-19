@@ -1,12 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { UserCircleIcon } from '@heroicons/react/outline';
+import { LoginIcon, UserCircleIcon } from '@heroicons/react/outline';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const Navbar: React.FC = () => {
+    const { user, error, isLoading } = useUser();
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error.message}</div>;
+
     return (
         <>
             <nav className=" bg-indigo-500 w-full flex fixed justify-between items-center mx-auto px-8 h-20 z-10">
-                <div className="inline-flex">
+                <div className="inline-flex whitespace-nowrap">
                     <Link href="/">
                         <span className="text-2xl text-white font-medium cursor-pointer">
                             Online Resume Portal
@@ -23,12 +29,23 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <div className="flex justify-end items-center relative">
-                    <button
-                        type="button"
-                        className="inline-flex items-center relative px-2"
-                    >
-                        <UserCircleIcon className="h-10 w-10 text-gray-300" />
-                    </button>
+                    {!user ? (
+                        <a href="/api/auth/login">
+                            <>
+                                <span className="text-lg mr-2 font-medium text-white cursor-pointer">
+                                    Login
+                                </span>
+                                <LoginIcon className="h-6 w-6 text-white" />
+                            </>
+                        </a>
+                    ) : (
+                        <button
+                            type="button"
+                            className="inline-flex items-center relative px-2"
+                        >
+                            <UserCircleIcon className="h-10 w-10 text-white" />
+                        </button>
+                    )}
                 </div>
             </nav>
 
