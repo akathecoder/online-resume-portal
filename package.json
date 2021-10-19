@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@auth0/nextjs-auth0": "^1.6.1",
         "@heroicons/react": "^1.0.4",
         "@ibm-cloud/cloudant": "^0.0.20",
         "ibm-cloud-sdk-core": "^2.15.1",
