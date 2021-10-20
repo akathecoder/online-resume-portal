@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { Navbar } from '@components/Navigation';
-import ProfileCard from '@components/ProfileForms/ProfileCard';
+import ProfileCardForm from '@components/ProfileForms/ProfileCardForm';
 
 const Profile: NextPage = () => {
     return (
@@ -9,7 +9,7 @@ const Profile: NextPage = () => {
             <main className="bg-gray-100">
                 <div className="container mx-auto p-5">
                     <div className=" no-wrap md:-mx-2">
-                        <ProfileCard />
+                        <ProfileCardForm />
                     </div>
                 </div>
             </main>
