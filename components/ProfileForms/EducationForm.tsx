@@ -9,6 +9,7 @@ import {
     StartDate,
 } from './EducationFormComps';
 import FormLayout from './FormLayout';
+import FormCard from './FormCard';
 
 const EducationForm: React.FC = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,15 +20,26 @@ const EducationForm: React.FC = () => {
         <FormLayout
             heading="Education"
             description="This information will be displayed publicly so be careful what you share."
-            onSubmit={handleSubmit}
         >
-            <SchoolName />
-            <Degree />
-            <FieldOfStudy />
-            <Grade />
-            <StartDate />
-            <EndDate />
-            <Details />
+            <FormCard onSubmit={handleSubmit}>
+                <SchoolName />
+                <Degree />
+                <FieldOfStudy />
+                <Grade />
+                <StartDate />
+                <EndDate />
+                <Details />
+            </FormCard>
+
+            <FormCard onSubmit={handleSubmit}>
+                <SchoolName />
+                <Degree />
+                <FieldOfStudy />
+                <Grade />
+                <StartDate />
+                <EndDate />
+                <Details />
+            </FormCard>
         </FormLayout>
     );
 };

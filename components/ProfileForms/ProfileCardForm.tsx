@@ -1,4 +1,5 @@
 import React from 'react';
+import FormCard from './FormCard';
 import FormLayout from './FormLayout';
 import {
     About,
@@ -20,16 +21,17 @@ const ProfileCardForm: React.FC = () => {
         <FormLayout
             heading="Profile"
             description="This information will be displayed publicly so be careful what you share."
-            onSubmit={handleSubmit}
         >
-            <ProfilePhoto />
-            <Name />
-            <Position />
-            <About />
-            <Status />
-            <GraduationDate />
-            <Degree />
-            <Branch />
+            <FormCard onSubmit={handleSubmit}>
+                <ProfilePhoto />
+                <Name />
+                <Position />
+                <About />
+                <Status />
+                <GraduationDate />
+                <Degree />
+                <Branch />
+            </FormCard>
         </FormLayout>
     );
 };
