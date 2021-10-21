@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import { Navbar } from '@components/Navigation';
 import ProfileCardForm from '@components/ProfileForms/ProfileCardForm';
 import EducationForm from '@components/ProfileForms/EducationForm';
+import ExperienceForm from '@components/ProfileForms/ExperienceForm';
 
 const Profile: NextPage = () => {
     return (
@@ -12,6 +13,7 @@ const Profile: NextPage = () => {
                     <div className=" no-wrap md:-mx-2">
                         <ProfileCardForm />
                         <EducationForm />
+                        <ExperienceForm />
                     </div>
                 </div>
             </main>
