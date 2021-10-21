@@ -5,6 +5,7 @@ import EducationForm from '@components/ProfileForms/EducationForm';
 import ExperienceForm from '@components/ProfileForms/ExperienceForm';
 import CertificationForm from '@components/ProfileForms/CertificationForm';
 import SkillsForm from '@components/ProfileForms/SkillsForm';
+import AboutForm from '@components/ProfileForms/AboutForm';
 
 const Profile: NextPage = () => {
     return (
@@ -14,6 +15,7 @@ const Profile: NextPage = () => {
                 <div className="container mx-auto p-5">
                     <div className=" no-wrap md:-mx-2">
                         <ProfileCardForm />
+                        <AboutForm />
                         <SkillsForm />
                         <EducationForm />
                         <ExperienceForm />
