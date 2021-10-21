@@ -1,3 +1,4 @@
+import { PlusIcon } from '@heroicons/react/outline';
 import React from 'react';
 
 interface HeadingProps {
@@ -39,5 +40,23 @@ export const FormDivider: React.FC = () => {
                 <div className="border-t border-gray-200" />
             </div>
         </div>
+    );
+};
+
+interface AddCardButtonProps {
+    onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+export const AddCardButton: React.FC<AddCardButtonProps> = ({
+    onClick,
+}: AddCardButtonProps) => {
+    return (
+        <button
+            className="mt-1 flex justify-center py-2 border-2 border-gray-300 border-dashed rounded-md text-center cursor-pointer transform hover:scale-105 hover:shadow-sm"
+            onClick={onClick}
+        >
+            <PlusIcon className="w-6 h-6" />
+            <p className="text-sm text-gray-600 ml-1 my-auto">Add a new Card</p>
+        </button>
     );
 };
