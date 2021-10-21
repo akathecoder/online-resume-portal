@@ -3,6 +3,7 @@ import { Navbar } from '@components/Navigation';
 import ProfileCardForm from '@components/ProfileForms/ProfileCardForm';
 import EducationForm from '@components/ProfileForms/EducationForm';
 import ExperienceForm from '@components/ProfileForms/ExperienceForm';
+import CertificationForm from '@components/ProfileForms/CertificationForm';
 
 const Profile: NextPage = () => {
     return (
@@ -14,6 +15,7 @@ const Profile: NextPage = () => {
                         <ProfileCardForm />
                         <EducationForm />
                         <ExperienceForm />
+                        <CertificationForm />
                     </div>
                 </div>
             </main>
