@@ -30,14 +30,14 @@ const Navbar: React.FC = () => {
 
                 <div className="flex justify-end items-center relative">
                     {!user ? (
-                        <a href="/api/auth/login">
+                        <Link href="/api/auth/login">
                             <>
                                 <span className="text-lg mr-2 font-medium text-white cursor-pointer">
                                     Login
                                 </span>
                                 <LoginIcon className="h-6 w-6 text-white" />
                             </>
-                        </a>
+                        </Link>
                     ) : (
                         <button
                             type="button"
