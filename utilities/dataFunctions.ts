@@ -9,6 +9,15 @@ import {
 } from './profileDataTypes';
 import { firestoreDb } from './firebase';
 
+export async function createUser(username: string): Promise<void> {
+    await firestoreDb.collection('users').doc(username).set(
+        {},
+        {
+            merge: true,
+        },
+    );
+}
+
 export async function getUserDataByUsername(
     username: string,
 ): Promise<StudentProfileType> {
