@@ -5,10 +5,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method == 'POST') {
         console.log(req.body);
 
-        if (req.body.email && req.body.apiKey) {
+        if (req.body.email && req.body.username && req.body.apiKey) {
             if (req.body.apiKey === process.env.AUTH0_CREATE_USER_API_KEY) {
-                await createUser(req.body.email);
-                // console.log(req.body.event);
+                await createUser(req.body.email, req.body.username);
                 res.status(200).send('User Created');
             } else {
                 console.log('API KEY ERROR');

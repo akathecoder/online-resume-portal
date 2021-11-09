@@ -9,9 +9,12 @@ import {
 } from './profileDataTypes';
 import { firestoreDb } from './firebase';
 
-export async function createUser(username: string): Promise<void> {
-    await firestoreDb.collection('users').doc(username).set(
-        {},
+export async function createUser(
+    email: string,
+    username: string,
+): Promise<void> {
+    await firestoreDb.collection('users').doc(email).set(
+        { username: username },
         {
             merge: true,
         },
