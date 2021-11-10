@@ -33,3 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#development files
+pages/formLayout.tsx
+pages/testProfile.tsx
