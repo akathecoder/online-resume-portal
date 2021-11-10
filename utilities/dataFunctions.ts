@@ -137,3 +137,15 @@ export async function getExperience(
 
     return document.docs.map((value) => value.data() as ExperienceData);
 }
+
+export async function getCertification(
+    email: string,
+): Promise<Array<CertificationData>> {
+    const document = await firestoreDb
+        .collection('users')
+        .doc(email)
+        .collection('certification')
+        .get();
+
+    return document.docs.map((value) => value.data() as CertificationData);
+}

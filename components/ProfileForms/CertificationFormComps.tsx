@@ -1,50 +1,57 @@
 import React from 'react';
 
-export const Name: React.FC = () => {
+interface ValueProps {
+    value: string | number | undefined;
+}
+
+export const Name: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="first-name"
+                htmlFor="certificationName"
                 className="block text-sm font-medium text-gray-700"
             >
                 Name
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="certificationName"
+                id="certificationName"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const Organization: React.FC = () => {
+export const Organization: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="first-name"
+                htmlFor="organization"
                 className="block text-sm font-medium text-gray-700"
             >
                 Organization
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="organization"
+                id="organization"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const StartDate: React.FC = () => {
+export const StartDate: React.FC<ValueProps> = ({ value }: ValueProps) => {
+    const month = value ? value.toString().split(' ')[0] : '';
+    const year = value ? value.toString().split(' ')[1] : '';
+
     return (
         <div className=" col-span-6 sm:col-span-3">
             <label
-                htmlFor="graduation-date"
+                htmlFor="startMonth"
                 className="block text-sm font-medium text-gray-700"
             >
                 Start Date
@@ -52,12 +59,13 @@ export const StartDate: React.FC = () => {
 
             <div className=" grid grid-cols-2 gap-2 col-span-6 sm:col-span-3">
                 <select
-                    id="graduation-month"
-                    name="graduation-month"
+                    id="startMonth"
+                    name="startMonth"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={month}
                 >
                     {/* TODO: Check whether this System Works */}
-                    <option selected disabled>
+                    <option selected disabled hidden>
                         Month
                     </option>
                     <option>January</option>
@@ -75,12 +83,13 @@ export const StartDate: React.FC = () => {
                 </select>
 
                 <select
-                    id="graduation-year"
-                    name="graduation-year"
+                    id="startYear"
+                    name="startYear"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={year}
                 >
                     {/* TODO: Check whether this System Works */}
-                    <option selected disabled>
+                    <option selected disabled hidden>
                         Year
                     </option>
                     <option>2012</option>
@@ -104,11 +113,14 @@ export const StartDate: React.FC = () => {
     );
 };
 
-export const EndDate: React.FC = () => {
+export const EndDate: React.FC<ValueProps> = ({ value }: ValueProps) => {
+    const month = value ? value.toString().split(' ')[0] : '';
+    const year = value ? value.toString().split(' ')[1] : '';
+
     return (
         <div className=" col-span-6 sm:col-span-3">
             <label
-                htmlFor="graduation-date"
+                htmlFor="endMonth"
                 className="block text-sm font-medium text-gray-700"
             >
                 End Date
@@ -116,9 +128,10 @@ export const EndDate: React.FC = () => {
 
             <div className=" grid grid-cols-2 gap-2 col-span-6 sm:col-span-3">
                 <select
-                    id="graduation-month"
-                    name="graduation-month"
+                    id="endMonth"
+                    name="endMonth"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={month}
                 >
                     {/* TODO: Check whether this System Works */}
                     <option selected disabled>
@@ -139,12 +152,13 @@ export const EndDate: React.FC = () => {
                 </select>
 
                 <select
-                    id="graduation-year"
-                    name="graduation-year"
+                    id="endYear"
+                    name="endYear"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={year}
                 >
                     {/* TODO: Check whether this System Works */}
-                    <option selected disabled>
+                    <option selected disabled hidden>
                         Year
                     </option>
                     <option>2012</option>
@@ -168,31 +182,31 @@ export const EndDate: React.FC = () => {
     );
 };
 
-export const CredentialID: React.FC = () => {
+export const CredentialID: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="first-name"
+                htmlFor="credentialId"
                 className="block text-sm font-medium text-gray-700"
             >
                 CredentialID
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="credentialId"
+                id="credentialId"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const CredentialUrl: React.FC = () => {
+export const CredentialUrl: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="company-website"
+                htmlFor="credentialUrl"
                 className="block text-sm font-medium text-gray-700"
             >
                 Website
@@ -203,10 +217,11 @@ export const CredentialUrl: React.FC = () => {
                 </span>
                 <input
                     type="text"
-                    name="company-website"
-                    id="company-website"
+                    name="credentialUrl"
+                    id="credentialUrl"
                     className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                     placeholder="www.example.com"
+                    defaultValue={value}
                 />
             </div>
         </div>

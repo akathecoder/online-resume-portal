@@ -52,7 +52,7 @@ export interface EducationData {
 }
 
 export interface CertificationData {
-    key: number;
+    key: string;
     name: string;
     organization: string;
     startDate: string;
