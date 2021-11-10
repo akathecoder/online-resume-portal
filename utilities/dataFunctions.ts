@@ -4,7 +4,7 @@ import {
     ProfileData,
     StudentProfileType,
     EducationData,
-    ExpereinceData,
+    ExperienceData,
     SkillsData,
 } from './profileDataTypes';
 import { firestoreDb } from './firebase';
@@ -61,7 +61,7 @@ export async function setEducation(
 export async function setExperience(
     email: string,
     id: string,
-    data: ExpereinceData,
+    data: ExperienceData,
 ) {
     await firestoreDb
         .collection('users')
@@ -124,4 +124,16 @@ export async function getEducation(
         .get();
 
     return document.docs.map((value) => value.data() as EducationData);
+}
+
+export async function getExperience(
+    email: string,
+): Promise<Array<ExperienceData>> {
+    const document = await firestoreDb
+        .collection('users')
+        .doc(email)
+        .collection('experience')
+        .get();
+
+    return document.docs.map((value) => value.data() as ExperienceData);
 }

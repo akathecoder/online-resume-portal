@@ -1,6 +1,6 @@
 import { UserIcon } from '@heroicons/react/outline';
 import React from 'react';
-import { ExpereinceData } from '../../utilities/profileDataTypes';
+import { ExperienceData } from '../../utilities/profileDataTypes';
 
 interface ExpereinceGridItemProps {
     companyName: string;
@@ -38,7 +38,7 @@ const ExpereinceGridItem: React.FC<ExpereinceGridItemProps> = ({
 };
 
 interface ExpereinceSectionProps {
-    data: Array<ExpereinceData>;
+    data: Array<ExperienceData>;
 }
 
 const ExpereinceSection: React.FC<ExpereinceSectionProps> = ({

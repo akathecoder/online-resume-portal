@@ -2,7 +2,7 @@ export interface StudentProfileType {
     profile: ProfileData;
     about: Array<AboutData>;
     skills: Array<SkillsData>;
-    expereince: Array<ExpereinceData>;
+    expereince: Array<ExperienceData>;
     education: Array<EducationData>;
     certification: Array<CertificationData>;
 }
@@ -30,8 +30,8 @@ export interface SkillsData {
     name: string;
 }
 
-export interface ExpereinceData {
-    key: number;
+export interface ExperienceData {
+    key: string;
     companyName: string;
     position: string;
     place: string;
