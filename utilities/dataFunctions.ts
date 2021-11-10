@@ -80,16 +80,26 @@ export async function setSkill(email: string, id: string, data: SkillsData) {
         .set(data);
 }
 
-export async function setAbout(email: string, id: string, data: AboutData) {
+export async function setAbout(email: string, id: number, data: AboutData) {
     await firestoreDb
         .collection('users')
         .doc(email)
         .collection('about')
-        .doc(id)
+        .doc(`${id}`)
         .set(data);
 }
 
 export async function getProfile(email: string): Promise<ProfileData> {
     const document = await firestoreDb.collection('users').doc(email).get();
     return document.data() as ProfileData;
+}
+
+export async function getAbout(email: string): Promise<Array<AboutData>> {
+    const document = await firestoreDb
+        .collection('users')
+        .doc(email)
+        .collection('about')
+        .get();
+
+    return document.docs.map((value) => value.data() as AboutData);
 }

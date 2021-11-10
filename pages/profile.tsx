@@ -21,7 +21,7 @@ const Profile: NextPage = () => {
                 <div className="container mx-auto p-5">
                     <div className=" no-wrap md:-mx-2">
                         <ProfileCardForm user={user} />
-                        <AboutForm />
+                        <AboutForm user={user} />
                         <SkillsForm />
                         <EducationForm />
                         <ExperienceForm />

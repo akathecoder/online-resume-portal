@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Name, Title } from './AboutFormComps';
 import FormCard from './FormCard';
 import FormLayout from './FormLayout';
+import { AboutData } from '../../utilities/profileDataTypes';
+import { UserProfile } from '@auth0/nextjs-auth0';
+import { getAbout, setAbout } from '@utilities/dataFunctions';
 
-const AboutForm: React.FC = () => {
-    const [data, setData] = useState([1]);
+interface AboutFormProps {
+    user: UserProfile | undefined;
+}
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const AboutForm: React.FC<AboutFormProps> = ({ user }: AboutFormProps) => {
+    const [data, setData] = useState<Array<AboutData>>([]);
+
+    useEffect(() => {
+        user &&
+            user.email &&
+            getAbout(user.email).then((data) => {
+                setData(data);
+            });
+    }, []);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        if (user && user.email) {
+            await setAbout(user.email, event.currentTarget.detailId.value, {
+                key: event.currentTarget.detailId.value,
+                title: event.currentTarget.detailName.value,
+                detail: event.currentTarget.detailTitle.value,
+                link: event.currentTarget.detailLink.value,
+            } as AboutData);
+            alert('Data Updated');
+        } else {
+            alert('User Error');
+        }
     };
 
     const handleAddCard = (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     ) => {
-        setData([...data, data.length + 1]);
+        setData([...data, { key: data.length + 1 } as AboutData]);
     };
 
     return (
@@ -23,13 +50,19 @@ const AboutForm: React.FC = () => {
             addCardButton
             onAddCardButtonClick={handleAddCard}
         >
-            {data.map((value) => (
-                <FormCard key={value} onSubmit={handleSubmit}>
-                    <Name />
-                    <Title />
-                    <Link />
-                </FormCard>
-            ))}
+            {data.map((value) => {
+                return (
+                    <FormCard
+                        key={value.key}
+                        id={value.key}
+                        onSubmit={handleSubmit}
+                    >
+                        <Name value={value.title} />
+                        <Title value={value.detail} />
+                        <Link value={value.link} />
+                    </FormCard>
+                );
+            })}
         </FormLayout>
     );
 };
