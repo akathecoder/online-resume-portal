@@ -2,7 +2,7 @@ import React from 'react';
 import { SaveButton } from './GeneralFormComps';
 
 interface FormCardProps {
-    id?: number;
+    id?: string;
     children: React.ReactNode;
     onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }

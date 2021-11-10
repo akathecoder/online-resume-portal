@@ -19,7 +19,7 @@ export interface ProfileData {
 }
 
 export interface AboutData {
-    key: number;
+    key: string;
     title: string;
     detail: string;
     link?: string;

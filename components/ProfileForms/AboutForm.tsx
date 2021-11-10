@@ -5,6 +5,7 @@ import FormLayout from './FormLayout';
 import { AboutData } from '../../utilities/profileDataTypes';
 import { UserProfile } from '@auth0/nextjs-auth0';
 import { getAbout, setAbout } from '@utilities/dataFunctions';
+import { v4 as uuidv4 } from 'uuid';
 
 interface AboutFormProps {
     user: UserProfile | undefined;
@@ -40,7 +41,7 @@ const AboutForm: React.FC<AboutFormProps> = ({ user }: AboutFormProps) => {
     const handleAddCard = (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     ) => {
-        setData([...data, { key: data.length + 1 } as AboutData]);
+        setData([...data, { key: uuidv4() } as AboutData]);
     };
 
     return (
