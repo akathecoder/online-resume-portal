@@ -22,7 +22,7 @@ const Profile: NextPage = () => {
                     <div className=" no-wrap md:-mx-2">
                         <ProfileCardForm user={user} />
                         <AboutForm user={user} />
-                        <SkillsForm />
+                        <SkillsForm user={user} />
                         <EducationForm />
                         <ExperienceForm />
                         <CertificationForm />

@@ -26,7 +26,7 @@ export interface AboutData {
 }
 
 export interface SkillsData {
-    key: number;
+    key: string;
     name: string;
 }
 
