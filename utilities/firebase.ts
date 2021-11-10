@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 require('firebase/firestore');
+require('firebase/storage');
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,5 +17,7 @@ const firebaseApp = firebase.apps.length
     : firebase.initializeApp(firebaseConfig);
 
 const firestoreDb = firebaseApp.firestore();
+const firebaseStorage = firebaseApp.storage();
+const storageRef = firebaseStorage.ref();
 
-export { firestoreDb };
+export { firestoreDb, firebaseStorage, storageRef };

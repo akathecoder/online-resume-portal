@@ -1,6 +1,14 @@
-import React from 'react';
+import { uploadProfilePic } from '@utilities/storageFunctions';
+import React, { useEffect, useState } from 'react';
 
-export const ProfilePhoto: React.FC = () => {
+interface ValueProps {
+    value: string | undefined;
+    setValue: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
+export const ProfilePhoto: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6">
             <label className="block text-sm font-medium text-gray-700">
@@ -8,66 +16,98 @@ export const ProfilePhoto: React.FC = () => {
             </label>
             <div className="mt-1 flex items-center">
                 <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                    <svg
-                        className="h-full w-full text-gray-300"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
+                    {value ? (
+                        <img src={value} alt="" />
+                    ) : (
+                        <svg
+                            className="h-full w-full text-gray-300"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    )}
                 </span>
-                <button
-                    type="button"
-                    className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Change
-                </button>
+
+                <label htmlFor="profile-photo">
+                    <div className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
+                        Change
+                    </div>
+                </label>
+
+                <input
+                    type="file"
+                    accept="image/*"
+                    name="profile-photo"
+                    id="profile-photo"
+                    className="hidden"
+                    onChange={(e) => {
+                        console.log(e.currentTarget.files![0]);
+                        uploadProfilePic(e.currentTarget.files![0]).then(
+                            (downloadUrl) => {
+                                setValue(downloadUrl);
+                            },
+                        );
+                    }}
+                />
             </div>
         </div>
     );
 };
 
-export const Name: React.FC = () => {
+export const Name: React.FC<ValueProps> = ({ value, setValue }: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-3">
             <label
-                htmlFor="first-name"
+                htmlFor="full-name"
                 className="block text-sm font-medium text-gray-700"
             >
                 Full Name
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="full-name"
+                id="full-name"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.currentTarget.value);
+                }}
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
         </div>
     );
 };
 
-export const Position: React.FC = () => {
+export const Position: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-3">
             <label
-                htmlFor="last-name"
+                htmlFor="position"
                 className="block text-sm font-medium text-gray-700"
             >
                 Position
             </label>
             <input
                 type="text"
-                name="last-name"
-                id="last-name"
-                autoComplete="family-name"
+                name="position"
+                id="position"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.currentTarget.value);
+                }}
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
         </div>
     );
 };
 
-export const About: React.FC = () => {
+export const About: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
@@ -84,6 +124,10 @@ export const About: React.FC = () => {
                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                     placeholder="you@example.com"
                     defaultValue={''}
+                    value={value}
+                    onChange={(e) => {
+                        setValue(e.currentTarget.value);
+                    }}
                 />
             </div>
             <p className="mt-2 text-sm text-gray-500">
@@ -93,7 +137,10 @@ export const About: React.FC = () => {
     );
 };
 
-export const Status: React.FC = () => {
+export const Status: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-3">
             <label
@@ -105,6 +152,10 @@ export const Status: React.FC = () => {
             <select
                 id="status"
                 name="status"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.currentTarget.value);
+                }}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             >
                 <option>Student</option>
@@ -114,7 +165,22 @@ export const Status: React.FC = () => {
     );
 };
 
-export const GraduationDate: React.FC = () => {
+export const GraduationDate: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
+    const [month, setMonth] = useState<string>();
+    const [year, setYear] = useState<string>();
+
+    useEffect(() => {
+        value && setMonth(value.split(' ')[0]);
+        value && setYear(value.split(' ')[1]);
+    }, []);
+
+    useEffect(() => {
+        setValue(`${month} ${year}`);
+    }, [year, month]);
+
     return (
         <div className=" col-span-6 sm:col-span-3">
             <label
@@ -128,6 +194,10 @@ export const GraduationDate: React.FC = () => {
                 <select
                     id="graduation-month"
                     name="graduation-month"
+                    value={month}
+                    onChange={(e) => {
+                        setMonth(e.currentTarget.value);
+                    }}
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                     {/* TODO: Check whether this System Works */}
@@ -151,6 +221,10 @@ export const GraduationDate: React.FC = () => {
                 <select
                     id="graduation-year"
                     name="graduation-year"
+                    value={year}
+                    onChange={(e) => {
+                        setYear(e.currentTarget.value);
+                    }}
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                     {/* TODO: Check whether this System Works */}
@@ -178,40 +252,52 @@ export const GraduationDate: React.FC = () => {
     );
 };
 
-export const Degree: React.FC = () => {
+export const Degree: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-3">
             <label
-                htmlFor="last-name"
+                htmlFor="degree"
                 className="block text-sm font-medium text-gray-700"
             >
                 Degree
             </label>
             <input
                 type="text"
-                name="last-name"
-                id="last-name"
-                autoComplete="family-name"
+                name="degree"
+                id="degree"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.currentTarget.value);
+                }}
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
         </div>
     );
 };
 
-export const Branch: React.FC = () => {
+export const Branch: React.FC<ValueProps> = ({
+    value,
+    setValue,
+}: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-3">
             <label
-                htmlFor="last-name"
+                htmlFor="branch"
                 className="block text-sm font-medium text-gray-700"
             >
                 Branch
             </label>
             <input
                 type="text"
-                name="last-name"
-                id="last-name"
-                autoComplete="family-name"
+                name="branch"
+                id="branch"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.currentTarget.value);
+                }}
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
         </div>

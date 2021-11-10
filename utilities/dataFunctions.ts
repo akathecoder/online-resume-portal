@@ -28,63 +28,68 @@ export async function getUserDataByUsername(
     return document.data() as StudentProfileType;
 }
 
-export async function setProfile(username: string, data: ProfileData) {
-    await firestoreDb.collection('users').doc(username).set(data);
+export async function setProfile(email: string, data: ProfileData) {
+    await firestoreDb.collection('users').doc(email).set(data);
 }
 
 export async function setCertification(
-    username: string,
+    email: string,
     id: string,
     data: CertificationData,
 ) {
     await firestoreDb
         .collection('users')
-        .doc(username)
+        .doc(email)
         .collection('certification')
         .doc(id)
         .set(data);
 }
 
 export async function setEducation(
-    username: string,
+    email: string,
     id: string,
     data: EducationData,
 ) {
     await firestoreDb
         .collection('users')
-        .doc(username)
+        .doc(email)
         .collection('education')
         .doc(id)
         .set(data);
 }
 
 export async function setExperience(
-    username: string,
+    email: string,
     id: string,
     data: ExpereinceData,
 ) {
     await firestoreDb
         .collection('users')
-        .doc(username)
+        .doc(email)
         .collection('experience')
         .doc(id)
         .set(data);
 }
 
-export async function setSkill(username: string, id: string, data: SkillsData) {
+export async function setSkill(email: string, id: string, data: SkillsData) {
     await firestoreDb
         .collection('users')
-        .doc(username)
+        .doc(email)
         .collection('skills')
         .doc(id)
         .set(data);
 }
 
-export async function setAbout(username: string, id: string, data: AboutData) {
+export async function setAbout(email: string, id: string, data: AboutData) {
     await firestoreDb
         .collection('users')
-        .doc(username)
+        .doc(email)
         .collection('about')
         .doc(id)
         .set(data);
+}
+
+export async function getProfile(email: string): Promise<ProfileData> {
+    const document = await firestoreDb.collection('users').doc(email).get();
+    return document.data() as ProfileData;
 }
