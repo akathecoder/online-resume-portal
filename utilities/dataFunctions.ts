@@ -113,3 +113,15 @@ export async function getSkills(email: string): Promise<Array<SkillsData>> {
 
     return document.docs.map((value) => value.data() as SkillsData);
 }
+
+export async function getEducation(
+    email: string,
+): Promise<Array<EducationData>> {
+    const document = await firestoreDb
+        .collection('users')
+        .doc(email)
+        .collection('education')
+        .get();
+
+    return document.docs.map((value) => value.data() as EducationData);
+}

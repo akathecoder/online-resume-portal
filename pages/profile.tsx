@@ -23,7 +23,7 @@ const Profile: NextPage = () => {
                         <ProfileCardForm user={user} />
                         <AboutForm user={user} />
                         <SkillsForm user={user} />
-                        <EducationForm />
+                        <EducationForm user={user} />
                         <ExperienceForm />
                         <CertificationForm />
                     </div>

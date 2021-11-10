@@ -1,90 +1,97 @@
 import React from 'react';
 
-export const SchoolName: React.FC = () => {
+interface ValueProps {
+    value: string | number | undefined;
+}
+
+export const SchoolName: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="first-name"
+                htmlFor="schoolName"
                 className="block text-sm font-medium text-gray-700"
             >
                 School Name
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="schoolName"
+                id="schoolName"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const Degree: React.FC = () => {
+export const Degree: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-2">
             <label
-                htmlFor="first-name"
+                htmlFor="degree"
                 className="block text-sm font-medium text-gray-700"
             >
                 Degree
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="degree"
+                id="degree"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const FieldOfStudy: React.FC = () => {
+export const FieldOfStudy: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-2">
             <label
-                htmlFor="first-name"
+                htmlFor="fieldOfStudy"
                 className="block text-sm font-medium text-gray-700"
             >
                 Field of Study
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="fieldOfStudy"
+                id="fieldOfStudy"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const Grade: React.FC = () => {
+export const Grade: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6 sm:col-span-2">
             <label
-                htmlFor="first-name"
+                htmlFor="grade"
                 className="block text-sm font-medium text-gray-700"
             >
                 Grade
             </label>
             <input
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="grade"
+                id="grade"
                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                defaultValue={value}
             />
         </div>
     );
 };
 
-export const StartDate: React.FC = () => {
+export const StartDate: React.FC<ValueProps> = ({ value }: ValueProps) => {
+    const month = value ? value.toString().split(' ')[0] : '';
+    const year = value ? value.toString().split(' ')[1] : '';
+
     return (
         <div className=" col-span-6 sm:col-span-3">
             <label
-                htmlFor="graduation-date"
+                htmlFor="startMonth"
                 className="block text-sm font-medium text-gray-700"
             >
                 Start Date
@@ -92,12 +99,13 @@ export const StartDate: React.FC = () => {
 
             <div className=" grid grid-cols-2 gap-2 col-span-6 sm:col-span-3">
                 <select
-                    id="graduation-month"
-                    name="graduation-month"
+                    id="startMonth"
+                    name="startMonth"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={month}
                 >
                     {/* TODO: Check whether this System Works */}
-                    <option selected disabled>
+                    <option selected disabled hidden>
                         Month
                     </option>
                     <option>January</option>
@@ -115,12 +123,13 @@ export const StartDate: React.FC = () => {
                 </select>
 
                 <select
-                    id="graduation-year"
-                    name="graduation-year"
+                    id="startYear"
+                    name="startYear"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={year}
                 >
                     {/* TODO: Check whether this System Works */}
-                    <option selected disabled>
+                    <option selected disabled hidden>
                         Year
                     </option>
                     <option>2012</option>
@@ -144,11 +153,14 @@ export const StartDate: React.FC = () => {
     );
 };
 
-export const EndDate: React.FC = () => {
+export const EndDate: React.FC<ValueProps> = ({ value }: ValueProps) => {
+    const month = value ? value.toString().split(' ')[0] : '';
+    const year = value ? value.toString().split(' ')[1] : '';
+
     return (
         <div className=" col-span-6 sm:col-span-3">
             <label
-                htmlFor="graduation-date"
+                htmlFor="endMonth"
                 className="block text-sm font-medium text-gray-700"
             >
                 End Date
@@ -156,9 +168,10 @@ export const EndDate: React.FC = () => {
 
             <div className=" grid grid-cols-2 gap-2 col-span-6 sm:col-span-3">
                 <select
-                    id="graduation-month"
-                    name="graduation-month"
+                    id="endMonth"
+                    name="endMonth"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={month}
                 >
                     {/* TODO: Check whether this System Works */}
                     <option selected disabled>
@@ -179,9 +192,10 @@ export const EndDate: React.FC = () => {
                 </select>
 
                 <select
-                    id="graduation-year"
-                    name="graduation-year"
+                    id="endYear"
+                    name="endYear"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    defaultValue={year}
                 >
                     {/* TODO: Check whether this System Works */}
                     <option selected disabled>
@@ -208,23 +222,22 @@ export const EndDate: React.FC = () => {
     );
 };
 
-export const Details: React.FC = () => {
+export const Details: React.FC<ValueProps> = ({ value }: ValueProps) => {
     return (
         <div className="col-span-6">
             <label
-                htmlFor="about"
+                htmlFor="details"
                 className="block text-sm font-medium text-gray-700"
             >
                 Details
             </label>
             <div className="mt-1">
                 <textarea
-                    id="about"
-                    name="about"
+                    id="details"
+                    name="details"
                     rows={3}
                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                    placeholder="you@example.com"
-                    defaultValue={''}
+                    defaultValue={value}
                 />
             </div>
         </div>

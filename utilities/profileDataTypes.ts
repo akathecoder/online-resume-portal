@@ -41,7 +41,7 @@ export interface ExpereinceData {
 }
 
 export interface EducationData {
-    key: number;
+    key: string;
     school: string;
     degree: string;
     fieldOfStudy: string;
