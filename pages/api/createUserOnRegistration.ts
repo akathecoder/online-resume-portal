@@ -1,4 +1,4 @@
-import { createUser } from '@utilities/dataFunctions';
+import { createUser, createUserEmail } from '@utilities/dataFunctions';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -8,6 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         if (req.body.email && req.body.username && req.body.apiKey) {
             if (req.body.apiKey === process.env.AUTH0_CREATE_USER_API_KEY) {
                 await createUser(req.body.email, req.body.username);
+                await createUserEmail(req.body.email, req.body.username);
                 res.status(200).send('User Created');
             } else {
                 console.log('API KEY ERROR');
