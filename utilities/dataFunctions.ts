@@ -149,3 +149,42 @@ export async function getCertification(
 
     return document.docs.map((value) => value.data() as CertificationData);
 }
+
+export async function createUserEmail(
+    email: string,
+    username: string,
+): Promise<void> {
+    await firestoreDb
+        .collection('userEmails')
+        .doc(username)
+        .set({ email: email });
+}
+
+export async function setUserVisibility(
+    email: string,
+    username: string,
+    visibility: boolean,
+) {
+    if (visibility) {
+        await firestoreDb.collection('userEmails').doc(email).set({
+            username: username,
+        });
+    } else {
+        await firestoreDb.collection('userEmails').doc(email).delete();
+    }
+}
+
+export async function getUserVisibility(email: string): Promise<boolean> {
+    const document = await firestoreDb
+        .collection('userEmails')
+        .doc(email)
+        .get();
+
+    const a = document.data();
+
+    console.log('hulala');
+
+    console.log(a);
+
+    return document.data() ? true : false;
+}
