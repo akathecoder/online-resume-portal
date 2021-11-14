@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps<Data> = async (ctx) => {
     const username: string = ctx.params?.username + '';
 
     const data = await getUserDataByUsername(username);
-    console.log(data);
+    // console.log(data);
     return {
         props: {
             data: data,

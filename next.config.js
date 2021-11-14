@@ -2,7 +2,7 @@
 module.exports = {
     reactStrictMode: true,
     images: {
-        domains: ['doodleipsum.com'],
+        domains: ['doodleipsum.com', 'firebasestorage.googleapis.com'],
     },
     typescript: {
         // !! WARN !!

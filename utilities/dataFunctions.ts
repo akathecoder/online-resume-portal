@@ -24,8 +24,22 @@ export async function createUser(
 export async function getUserDataByUsername(
     username: string,
 ): Promise<StudentProfileType> {
-    const document = await firestoreDb.collection('users').doc(username).get();
-    return document.data() as StudentProfileType;
+    const emailDocument = await firestoreDb
+        .collection('userEmails')
+        .doc(username)
+        .get();
+    const email = emailDocument.data()!.email;
+
+    const data = {
+        profile: await getProfile(email),
+        about: await getAbout(email),
+        certification: await getCertification(email),
+        education: await getEducation(email),
+        expereince: await getExperience(email),
+        skills: await getSkills(email),
+    } as StudentProfileType;
+
+    return data;
 }
 
 export async function setProfile(email: string, data: ProfileData) {
