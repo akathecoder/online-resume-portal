@@ -20,24 +20,23 @@ const Navbar: React.FC = () => {
                     </Link>
                 </div>
 
-                <div className="hidden sm:block flex-shrink flex-grow-0 justify-start container mx-auto px-10 items-center rounded-lg overflow-hidden">
+                {/* <div className="hidden sm:block flex-shrink flex-grow-0 justify-start container mx-auto px-10 items-center rounded-lg overflow-hidden">
                     <input
                         className="w-full h-12 rounded-md border border-gray-400 focus:outline-none focus:shadow-outline px-8 text-base text-gray-400 flex-grow outline-none"
                         type="search"
                         placeholder="Search . . ."
                     />
-                </div>
+                </div> */}
 
                 <div className="flex justify-end items-center relative">
                     {!user ? (
-                        <Link href="/api/auth/login">
-                            <>
-                                <span className="text-lg mr-2 font-medium text-white cursor-pointer">
-                                    Login
-                                </span>
-                                <LoginIcon className="h-6 w-6 text-white" />
-                            </>
-                        </Link>
+                        <a href="/login">
+                            <span className="text-lg mr-2 font-medium text-white cursor-pointer">
+                                Login
+                            </span>
+
+                            <LoginIcon className="h-6 w-6 text-white" />
+                        </a>
                     ) : (
                         <button
                             type="button"
