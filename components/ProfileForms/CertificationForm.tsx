@@ -13,6 +13,7 @@ import FormLayout from './FormLayout';
 import { CertificationData } from '../../utilities/profileDataTypes';
 import { v4 as uuidv4 } from 'uuid';
 import { getCertification, setCertification } from '@utilities/dataFunctions';
+import { deleteCertification } from '@utilities/deleteDataFunctions';
 
 interface CertificationFormProps {
     user: UserProfile | undefined;
@@ -65,9 +66,15 @@ const CertificationForm: React.FC<CertificationFormProps> = ({
         ]);
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
+    const handleDelete = async (id: string) => {
+        if (user && user.email) {
+            await deleteCertification(user.email, id);
+            setData(data.filter((value) => value.key !== id));
+            alert('Data Deleted');
+        } else {
+            alert('User Error');
+        }
+    };
 
     return (
         <FormLayout

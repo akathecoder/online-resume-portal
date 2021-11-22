@@ -6,6 +6,7 @@ import { AboutData } from '../../utilities/profileDataTypes';
 import { UserProfile } from '@auth0/nextjs-auth0';
 import { getAbout, setAbout } from '@utilities/dataFunctions';
 import { v4 as uuidv4 } from 'uuid';
+import { deleteAbout } from '@utilities/deleteDataFunctions';
 
 interface AboutFormProps {
     user: UserProfile | undefined;
@@ -44,9 +45,15 @@ const AboutForm: React.FC<AboutFormProps> = ({ user }: AboutFormProps) => {
         setData([...data, { key: uuidv4() } as AboutData]);
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
+    const handleDelete = async (id: string) => {
+        if (user && user.email) {
+            await deleteAbout(user.email, id);
+            setData(data.filter((value) => value.key !== id));
+            alert('Data Deleted');
+        } else {
+            alert('User Error');
+        }
+    };
 
     return (
         <FormLayout

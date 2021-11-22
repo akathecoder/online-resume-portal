@@ -18,7 +18,7 @@ const Profile: NextPage = () => {
     if (!user)
         return (
             <Head>
-                <meta http-equiv="refresh" content="0; url=/login" />
+                <meta http-equiv="refresh" content="0; url=/api/auth/login" />
             </Head>
         );
 

@@ -13,6 +13,7 @@ import FormLayout from './FormLayout';
 import { ExperienceData } from '../../utilities/profileDataTypes';
 import { v4 as uuidv4 } from 'uuid';
 import { getExperience, setExperience } from '@utilities/dataFunctions';
+import { deleteExperience } from '@utilities/deleteDataFunctions';
 
 interface ExperienceFormProps {
     user: UserProfile | undefined;
@@ -65,9 +66,15 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
         ]);
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
+    const handleDelete = async (id: string) => {
+        if (user && user.email) {
+            await deleteExperience(user.email, id);
+            setData(data.filter((value) => value.key !== id));
+            alert('Data Deleted');
+        } else {
+            alert('User Error');
+        }
+    };
 
     return (
         <FormLayout

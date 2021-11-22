@@ -14,6 +14,7 @@ import { EducationData } from '@utilities/profileDataTypes';
 import { v4 as uuidv4 } from 'uuid';
 import { UserProfile } from '@auth0/nextjs-auth0';
 import { getEducation, setEducation } from '@utilities/dataFunctions';
+import { deleteEducation } from '@utilities/deleteDataFunctions';
 
 interface EducationFormProps {
     user: UserProfile | undefined;
@@ -63,9 +64,15 @@ const EducationForm: React.FC<EducationFormProps> = ({
         ]);
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
+    const handleDelete = async (id: string) => {
+        if (user && user.email) {
+            await deleteEducation(user.email, id);
+            setData(data.filter((value) => value.key !== id));
+            alert('Data Deleted');
+        } else {
+            alert('User Error');
+        }
+    };
 
     return (
         <FormLayout

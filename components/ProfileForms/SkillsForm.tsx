@@ -71,16 +71,12 @@ const SkillsForm: React.FC<SkillsFormProps> = ({ user }: SkillsFormProps) => {
         setData(data.filter((value) => value.key != key));
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
-
     return (
         <FormLayout
             heading="Skills"
             description="This information will be displayed publicly so be careful what you share."
         >
-            <FormCard onSubmit={handleSubmit} onDelete={handleDelete}>
+            <FormCard onSubmit={handleSubmit}>
                 {data.map((skill) => (
                     <SkillBox
                         data={skill}
