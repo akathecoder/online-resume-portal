@@ -65,6 +65,10 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
         ]);
     };
 
+    const handleDelete = async (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    ) => {};
+
     return (
         <FormLayout
             heading="Experience"
@@ -77,6 +81,7 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
                     key={value.key}
                     id={value.key}
                     onSubmit={handleSubmit}
+                    onDelete={handleDelete}
                 >
                     <CompanyName value={value.companyName} />
                     <Position value={value.position} />

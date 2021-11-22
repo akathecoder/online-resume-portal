@@ -65,6 +65,10 @@ const CertificationForm: React.FC<CertificationFormProps> = ({
         ]);
     };
 
+    const handleDelete = async (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    ) => {};
+
     return (
         <FormLayout
             heading="Licenses & Certification"
@@ -77,6 +81,7 @@ const CertificationForm: React.FC<CertificationFormProps> = ({
                     key={value.key}
                     id={value.key}
                     onSubmit={handleSubmit}
+                    onDelete={handleDelete}
                 >
                     <Name value={value.name} />
                     <Organization value={value.organization} />

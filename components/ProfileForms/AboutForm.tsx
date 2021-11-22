@@ -44,6 +44,10 @@ const AboutForm: React.FC<AboutFormProps> = ({ user }: AboutFormProps) => {
         setData([...data, { key: uuidv4() } as AboutData]);
     };
 
+    const handleDelete = async (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    ) => {};
+
     return (
         <FormLayout
             heading="About"
@@ -57,6 +61,7 @@ const AboutForm: React.FC<AboutFormProps> = ({ user }: AboutFormProps) => {
                         key={value.key}
                         id={value.key}
                         onSubmit={handleSubmit}
+                        onDelete={handleDelete}
                     >
                         <Name value={value.title} />
                         <Title value={value.detail} />

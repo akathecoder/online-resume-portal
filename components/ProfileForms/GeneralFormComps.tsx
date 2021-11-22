@@ -33,6 +33,24 @@ export const SaveButton: React.FC = () => {
     );
 };
 
+interface DeleteButtonProps {
+    onDelete: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+export const DeleteButton: React.FC<DeleteButtonProps> = ({
+    onDelete,
+}: DeleteButtonProps) => {
+    return (
+        <button
+            type="button"
+            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            onClick={onDelete}
+        >
+            Delete
+        </button>
+    );
+};
+
 export const FormDivider: React.FC = () => {
     return (
         <div className="hidden sm:block" aria-hidden="true">

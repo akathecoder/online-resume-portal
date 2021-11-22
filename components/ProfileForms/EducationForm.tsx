@@ -63,6 +63,10 @@ const EducationForm: React.FC<EducationFormProps> = ({
         ]);
     };
 
+    const handleDelete = async (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    ) => {};
+
     return (
         <FormLayout
             heading="Education"
@@ -75,6 +79,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
                     key={value.key}
                     id={value.key}
                     onSubmit={handleSubmit}
+                    onDelete={handleDelete}
                 >
                     <SchoolName value={value.school} />
                     <Degree value={value.degree} />
