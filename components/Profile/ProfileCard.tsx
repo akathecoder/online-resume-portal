@@ -14,7 +14,13 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         <div className="bg-white p-2 border-t-4 border-green-400 w-96 sticky top-24">
             <div className="overflow-hidden">
                 <div className="relative h-96 w-96">
-                    <Image src={data.image} layout="fill" objectFit="cover" />
+                    {data.image && (
+                        <Image
+                            src={data.image}
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    )}
                 </div>
             </div>
 
