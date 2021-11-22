@@ -35,15 +35,22 @@ const Navbar: React.FC = () => {
                                 Login
                             </span>
 
-                            <LoginIcon className="h-6 w-6 text-white" />
+                            {/* <LoginIcon className="h-6 w-6 text-white" /> */}
                         </a>
                     ) : (
-                        <button
-                            type="button"
-                            className="inline-flex items-center relative px-2"
-                        >
-                            <UserCircleIcon className="h-10 w-10 text-white" />
-                        </button>
+                        // <button
+                        //     type="button"
+                        //     className="inline-flex items-center relative px-2"
+                        // >
+                        //     <UserCircleIcon className="h-10 w-10 text-white" />
+                        // </button>
+                        <a href="/logout">
+                            <span className="text-lg mr-2 font-medium text-white cursor-pointer">
+                                Logout
+                            </span>
+
+                            {/* <LoginIcon className="h-6 w-6 text-white" /> */}
+                        </a>
                     )}
                 </div>
             </nav>
