@@ -16,4 +16,13 @@ module.exports = {
         // your project has ESLint errors.
         ignoreDuringBuilds: true,
     },
+    async redirects() {
+        return [
+            {
+                source: '/login',
+                destination: '/api/auth/login',
+                permanent: true,
+            },
+        ];
+    },
 };
