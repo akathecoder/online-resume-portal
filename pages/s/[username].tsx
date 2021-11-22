@@ -18,6 +18,10 @@ import { getUserDataByUsername } from '@utilities/dataFunctions';
 const Username: NextPage<
     InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ data }) => {
+    if (!data) {
+        return <>Redirect</>;
+    }
+
     return (
         <>
             <Navbar />
@@ -43,14 +47,15 @@ const Username: NextPage<
 };
 
 type Data = {
-    data: StudentProfileType;
+    data: StudentProfileType | null;
 };
 
 export const getServerSideProps: GetServerSideProps<Data> = async (ctx) => {
     const username: string = ctx.params?.username + '';
 
     const data = await getUserDataByUsername(username);
-    // console.log(data);
+    console.log('data', data);
+
     return {
         props: {
             data: data,

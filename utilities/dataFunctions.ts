@@ -23,23 +23,28 @@ export async function createUser(
 
 export async function getUserDataByUsername(
     username: string,
-): Promise<StudentProfileType> {
+): Promise<StudentProfileType | null> {
     const emailDocument = await firestoreDb
         .collection('userEmails')
         .doc(username)
         .get();
-    const email = emailDocument.data()!.email;
 
-    const data = {
-        profile: await getProfile(email),
-        about: await getAbout(email),
-        certification: await getCertification(email),
-        education: await getEducation(email),
-        expereince: await getExperience(email),
-        skills: await getSkills(email),
-    } as StudentProfileType;
+    const emailData = emailDocument.data();
 
-    return data;
+    if (emailData) {
+        const email = emailData.email;
+        const data = {
+            profile: await getProfile(email),
+            about: await getAbout(email),
+            certification: await getCertification(email),
+            education: await getEducation(email),
+            expereince: await getExperience(email),
+            skills: await getSkills(email),
+        } as StudentProfileType;
+        return data;
+    } else {
+        return null;
+    }
 }
 
 export async function setProfile(email: string, data: ProfileData) {
