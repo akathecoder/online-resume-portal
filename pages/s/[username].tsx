@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
     GetServerSideProps,
     InferGetServerSidePropsType,
@@ -19,7 +20,11 @@ const Username: NextPage<
     InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ data }) => {
     if (!data) {
-        return <>Redirect</>;
+        return (
+            <Head>
+                <meta http-equiv="refresh" content="0; url=/404" />
+            </Head>
+        );
     }
 
     return (
