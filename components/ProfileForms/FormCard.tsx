@@ -5,7 +5,7 @@ interface FormCardProps {
     id?: string;
     children: React.ReactNode;
     onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-    onDelete: (
+    onDelete?: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     ) => Promise<void>;
 }
@@ -33,7 +33,7 @@ const FormCard: React.FC<FormCardProps> = ({
                 </div>
 
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 gap-4 flex justify-end">
-                    <DeleteButton onDelete={onDelete} />
+                    {onDelete && <DeleteButton onDelete={onDelete} />}
                     <SaveButton />
                 </div>
             </div>

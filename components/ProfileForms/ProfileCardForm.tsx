@@ -48,16 +48,6 @@ const ProfileCardForm: React.FC<ProfileCardFormProps> = ({
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(
-            profilePhoto,
-            name,
-            position,
-            about,
-            status,
-            graduationDate,
-            degree,
-            branch,
-        );
 
         if (user && user.email) {
             await setProfile(user?.email, {
@@ -76,16 +66,12 @@ const ProfileCardForm: React.FC<ProfileCardFormProps> = ({
         }
     };
 
-    const handleDelete = async (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {};
-
     return (
         <FormLayout
             heading="Profile"
             description="This information will be displayed publicly so be careful what you share."
         >
-            <FormCard onSubmit={handleSubmit} onDelete={handleDelete}>
+            <FormCard onSubmit={handleSubmit}>
                 <ProfilePhoto value={profilePhoto} setValue={setProfilePhoto} />
                 <Name value={name} setValue={setName} />
                 <Position value={position} setValue={setPosition} />
