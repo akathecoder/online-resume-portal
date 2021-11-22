@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
 
                 <div className="flex justify-end items-center relative">
                     {!user ? (
-                        <a href="/login">
+                        <a href="/api/auth/login">
                             <span className="text-lg mr-2 font-medium text-white cursor-pointer">
                                 Login
                             </span>
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
                         // >
                         //     <UserCircleIcon className="h-10 w-10 text-white" />
                         // </button>
-                        <a href="/logout">
+                        <a href="/api/auth/logout">
                             <span className="text-lg mr-2 font-medium text-white cursor-pointer">
                                 Logout
                             </span>

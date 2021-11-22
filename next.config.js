@@ -17,22 +17,6 @@ module.exports = {
         ignoreDuringBuilds: true,
     },
     async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/api/auth/login',
-                permanent: true,
-            },
-            {
-                source: '/login',
-                destination: '/api/auth/login',
-                permanent: true,
-            },
-            {
-                source: '/logout',
-                destination: '/api/auth/logout',
-                permanent: true,
-            },
-        ];
+        return [];
     },
 };
