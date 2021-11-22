@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { Navbar } from '@components/Navigation';
 import ProfileCardForm from '@components/ProfileForms/ProfileCardForm';
 import EducationForm from '@components/ProfileForms/EducationForm';
@@ -13,6 +14,13 @@ const Profile: NextPage = () => {
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
+
+    if (!user)
+        return (
+            <Head>
+                <meta http-equiv="refresh" content="0; url=/login" />
+            </Head>
+        );
 
     return (
         <>
