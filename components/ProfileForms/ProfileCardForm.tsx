@@ -49,7 +49,7 @@ const ProfileCardForm: React.FC<ProfileCardFormProps> = ({
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        console.log(profilePhoto);
+        alert(profilePhoto);
 
         if (user && user.email) {
             await setProfile(user?.email, {
