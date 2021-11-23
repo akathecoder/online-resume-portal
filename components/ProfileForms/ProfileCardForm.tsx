@@ -49,6 +49,8 @@ const ProfileCardForm: React.FC<ProfileCardFormProps> = ({
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
+        console.log(profilePhoto);
+
         if (user && user.email) {
             await setProfile(user?.email, {
                 image: profilePhoto,
