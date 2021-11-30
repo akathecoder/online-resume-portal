@@ -16,6 +16,7 @@ export interface ProfileData {
     graduationDate?: string;
     branch?: string;
     degree?: string;
+    username?: string;
 }
 
 export interface AboutData {
