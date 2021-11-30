@@ -39,7 +39,10 @@ const Username: NextPage<
                     property="og:description"
                     content="Check out very own portfolio on Online Resume Portal"
                 />
-                <meta property="og:image" content="/public/socialPreview.jpg" />
+                <meta
+                    property="og:image"
+                    content="https://online-resume-portal.vercel.app/socialPreview.jpg"
+                />
 
                 <meta
                     property="twitter:title"
@@ -56,7 +59,7 @@ const Username: NextPage<
                 />
                 <meta
                     property="twitter:image"
-                    content="/public/socialPreview.jpg"
+                    content="https://online-resume-portal.vercel.app/socialPreview.jpg"
                 />
             </Head>
             <Navbar />
