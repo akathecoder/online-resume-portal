@@ -11,7 +11,10 @@ const Home: NextPage = () => {
                     property="og:description"
                     content="Create your very own portfolio instantly"
                 />
-                <meta property="og:image" content="/public/socialPreview.jpg" />
+                <meta
+                    property="og:image"
+                    content="https://online-resume-portal.vercel.app/socialPreview.jpg"
+                />
 
                 <meta property="twitter:title" content="Online Resume Portal" />
                 <meta
@@ -25,7 +28,7 @@ const Home: NextPage = () => {
                 />
                 <meta
                     property="twitter:image"
-                    content="/public/socialPreview.jpg"
+                    content="https://online-resume-portal.vercel.app/socialPreview.jpg"
                 />
             </Head>
             <main>
