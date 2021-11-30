@@ -29,6 +29,36 @@ const Username: NextPage<
 
     return (
         <>
+            <Head>
+                <meta http-equiv="refresh" content="0; url=/profile" />
+                <meta
+                    property="og:title"
+                    content={data.profile.name + "' Portfolio"}
+                />
+                <meta
+                    property="og:description"
+                    content="Check out very own portfolio on Online Resume Portal"
+                />
+                <meta property="og:image" content="/public/socialPreview.jpg" />
+
+                <meta
+                    property="twitter:title"
+                    content={data.profile.name + "' Portfolio"}
+                />
+                <meta
+                    property="twitter:description"
+                    content="Check out very own portfolio on Online Resume Portal"
+                />
+                <meta
+                    property="twitter:card"
+                    content="summary_large_image
+"
+                />
+                <meta
+                    property="twitter:image"
+                    content="/public/socialPreview.jpg"
+                />
+            </Head>
             <Navbar />
             <main className="bg-gray-100">
                 <div className="container mx-auto p-5">

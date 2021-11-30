@@ -6,6 +6,27 @@ const Home: NextPage = () => {
         <>
             <Head>
                 <meta http-equiv="refresh" content="0; url=/profile" />
+                <meta property="og:title" content="Online Resume Portal" />
+                <meta
+                    property="og:description"
+                    content="Create your very own portfolio instantly"
+                />
+                <meta property="og:image" content="/public/socialPreview.jpg" />
+
+                <meta property="twitter:title" content="Online Resume Portal" />
+                <meta
+                    property="twitter:description"
+                    content="Create your very own portfolio instantly"
+                />
+                <meta
+                    property="twitter:card"
+                    content="summary_large_image
+"
+                />
+                <meta
+                    property="twitter:image"
+                    content="/public/socialPreview.jpg"
+                />
             </Head>
             <main>
                 <div>
