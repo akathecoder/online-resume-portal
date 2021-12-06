@@ -30,7 +30,6 @@ const Username: NextPage<
     return (
         <>
             <Head>
-                <meta http-equiv="refresh" content="0; url=/profile" />
                 <meta
                     property="og:title"
                     content={data.profile.name + "' Portfolio"}
